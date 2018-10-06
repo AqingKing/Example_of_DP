@@ -25,13 +25,13 @@ int main() {
         index_k[i][i] = i;
     }
 
-    for (int l = 2; l <= n; ++l) {
-        for (int i = 1; i + l <= n + 1; ++i) {
-            int j = i + l - 1;
+    for (int len = 2; len <= n; ++len) {
+        for (int i = 1; i + len <= n + 1; ++i) {
+            int j = i + len - 1;
             for (int k = index_k[i][j - 1]; k <= index_k[i + 1][j]; ++k) {
-                int len = minLen[i][k] + minLen[k + 1][j] + sum[j] - sum[i - 1];
-                if (len < minLen[i][j]) {
-                    minLen[i][j] = len;
+                int str_len = minLen[i][k] + minLen[k + 1][j] + sum[j] - sum[i - 1];
+                if (str_len < minLen[i][j]) {
+                    minLen[i][j] = str_len;
                     index_k[i][j] = k;
                 }
             }
